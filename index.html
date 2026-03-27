@@ -17,19 +17,19 @@
 
     header {
       text-align: center;
-      padding: 80px 20px;
+      padding: 100px 20px;
       background: radial-gradient(circle, #111827, #020617);
     }
 
     h1 {
+      font-size: 42px;
       margin: 0;
-      font-size: 40px;
     }
 
     header p {
+      font-size: 18px;
       opacity: 0.9;
       margin: 15px 0;
-      font-size: 18px;
     }
 
     section {
@@ -38,44 +38,67 @@
     }
 
     h2 {
-      margin-bottom: 15px;
-      font-size: 28px;
+      font-size: 30px;
+      margin-bottom: 20px;
     }
 
     .btn {
       background: linear-gradient(45deg, #2563eb, #1e40af);
-      padding: 14px 26px;
+      padding: 14px 28px;
+      border-radius: 10px;
       color: white;
       text-decoration: none;
-      border-radius: 10px;
-      display: inline-block;
       margin: 10px;
+      display: inline-block;
       font-weight: bold;
       transition: 0.3s;
     }
 
     .btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
+      box-shadow: 0 0 20px rgba(37,99,235,0.6);
     }
 
-    .services {
+    /* CARDS SERVIÇOS */
+    .cards {
       display: grid;
-      gap: 15px;
-      max-width: 400px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 900px;
       margin: auto;
     }
 
-    .services p {
+    .card {
       background: #111827;
-      padding: 14px;
-      border-radius: 8px;
+      padding: 20px;
+      border-radius: 12px;
       transition: 0.3s;
+      cursor: pointer;
     }
 
-    .services p:hover {
+    .card:hover {
+      transform: translateY(-5px);
       background: #1f2937;
-      transform: scale(1.03);
+    }
+
+    .card h3 {
+      margin: 10px 0;
+    }
+
+    #descricao {
+      margin-top: 25px;
+      background: #111827;
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fade 0.3s;
+    }
+
+    @keyframes fade {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
 
     form {
@@ -87,34 +110,27 @@
       width: 100%;
       padding: 12px;
       margin: 10px 0;
-      border: none;
       border-radius: 8px;
+      border: none;
       background: #111827;
       color: white;
     }
 
     button {
       background: linear-gradient(45deg, #2563eb, #1e40af);
-      color: white;
       padding: 12px;
       border: none;
       border-radius: 8px;
       width: 100%;
-      cursor: pointer;
+      color: white;
       font-weight: bold;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
+      cursor: pointer;
     }
 
     footer {
       text-align: center;
       padding: 20px;
       background: #020617;
-      font-size: 14px;
       opacity: 0.7;
     }
 
@@ -123,11 +139,11 @@
       bottom: 20px;
       right: 20px;
       background: #25d366;
-      color: white;
-      padding: 14px 16px;
+      padding: 14px;
       border-radius: 50%;
-      font-size: 20px;
+      color: white;
       text-decoration: none;
+      font-size: 20px;
     }
 
     .highlight {
@@ -142,28 +158,43 @@
 <header>
   <h1>Andriole Tech</h1>
   <p>Criação de <span class="highlight">Sites, Sistemas e Suporte Técnico Profissional</span> 🚀</p>
-  
-  <a class="btn" href="https://wa.me/556291599946" target="_blank">
-    Falar no WhatsApp
-  </a>
 
-  <a class="btn" href="https://wa.me/556291599946" target="_blank">
-    Solicitar Orçamento
-  </a>
+  <a class="btn" href="https://wa.me/556291599946" target="_blank">Falar no WhatsApp</a>
+  <a class="btn" href="https://wa.me/556291599946" target="_blank">Solicitar Orçamento</a>
 </header>
 
 <section>
   <h2>Soluções em TI</h2>
   <p>Soluções rápidas e profissionais para fazer seu negócio crescer 📈</p>
-  <p><strong>Atendimento em Goiânia e região e remoto</strong></p>
+  <p><strong>Atendimento em Goiânia e região + online</strong></p>
 </section>
 
-<section class="services">
+<section>
   <h2>Serviços</h2>
-  <p>✔️ Suporte técnico</p>
-  <p>✔️ Criação de sites</p>
-  <p>✔️ Desenvolvimento de sistemas</p>
-  <p>✔️ Automação</p>
+
+  <div class="cards">
+    <div class="card" onclick="mostrar('suporte')">
+      <h3>💻 Suporte Técnico</h3>
+      <p>Manutenção e solução de problemas</p>
+    </div>
+
+    <div class="card" onclick="mostrar('sites')">
+      <h3>🌐 Criação de Sites</h3>
+      <p>Sites modernos e profissionais</p>
+    </div>
+
+    <div class="card" onclick="mostrar('sistemas')">
+      <h3>⚙️ Sistemas</h3>
+      <p>Desenvolvimento sob medida</p>
+    </div>
+
+    <div class="card" onclick="mostrar('automacao')">
+      <h3>🤖 Automação</h3>
+      <p>Automatize processos e tarefas</p>
+    </div>
+  </div>
+
+  <div id="descricao"></div>
 </section>
 
 <section>
@@ -197,17 +228,38 @@
     emailjs.init("SEU_USER_ID");
   })();
 
-  document.getElementById("contact-form")
-    .addEventListener("submit", function(e) {
-      e.preventDefault();
+  document.getElementById("contact-form").addEventListener("submit", function(e){
+    e.preventDefault();
 
-      emailjs.sendForm("SEU_SERVICE_ID", "SEU_TEMPLATE_ID", this)
-        .then(function() {
-          document.getElementById("status").innerText = "Mensagem enviada!";
-        }, function(error) {
-          document.getElementById("status").innerText = "Erro ao enviar.";
-        });
+    emailjs.sendForm("SEU_SERVICE_ID", "SEU_TEMPLATE_ID", this)
+    .then(function(){
+      document.getElementById("status").innerText = "Mensagem enviada!";
+    }, function(){
+      document.getElementById("status").innerText = "Erro ao enviar.";
     });
+  });
+
+  function mostrar(tipo) {
+    let texto = "";
+
+    if (tipo === "suporte") {
+      texto = "💻 Suporte técnico remoto, formatação, instalação de programas e correção de erros.";
+    }
+
+    if (tipo === "sites") {
+      texto = "🌐 Criação de sites modernos, rápidos e responsivos para empresas e profissionais.";
+    }
+
+    if (tipo === "sistemas") {
+      texto = "⚙️ Desenvolvimento de sistemas personalizados para otimizar seu negócio.";
+    }
+
+    if (tipo === "automacao") {
+      texto = "🤖 Automação de tarefas para aumentar produtividade e economizar tempo.";
+    }
+
+    document.getElementById("descricao").innerHTML = texto;
+  }
 </script>
 
 </body>

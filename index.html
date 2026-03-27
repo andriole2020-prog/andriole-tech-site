@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andriole Tech</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial;
+      background: linear-gradient(180deg, #0a0f1c, #020617);
+      color: white;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: radial-gradient(circle, #111827, #020617);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    header p {
+      opacity: 0.8;
+      margin: 10px 0;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      font-size: 28px;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, #2563eb, #1e40af);
+      padding: 14px 26px;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      display: inline-block;
+      margin-top: 20px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
+    }
+
+    .services {
+      display: grid;
+      gap: 15px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .services p {
+      background: #111827;
+      padding: 12px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .services p:hover {
+      background: #1f2937;
+      transform: scale(1.03);
+    }
+
+    form {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: #111827;
+      color: white;
+    }
+
+    button {
+      background: linear-gradient(45deg, #2563eb, #1e40af);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #020617;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    /* BOTÃO WHATSAPP FIXO */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      padding: 14px 16px;
+      border-radius: 50%;
+      font-size: 20px;
+      text-decoration: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.1);
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Andriole Tech</h1>
+  <p>Transformando ideias em soluções digitais 🚀</p>
+  <a class="btn" href="https://wa.me/556291599946" target="_blank">
+    Falar no WhatsApp
+  </a>
+</header>
+
+<section>
+  <h2>Soluções em TI</h2>
+  <p>Soluções rápidas e profissionais em tecnologia para o seu negócio crescer 🚀</p>
+</section>
+
+<section class="services">
+  <h2>Serviços</h2>
+  <p>✔️ Suporte técnico</p>
+  <p>✔️ Criação de sites</p>
+  <p>✔️ Desenvolvimento de sistemas</p>
+  <p>✔️ Automação</p>
+</section>
+
+<section>
+  <h2>Contato</h2>
+
+  <form id="contact-form">
+    <input type="text" name="name" placeholder="Seu nome" required>
+    <input type="email" name="email" placeholder="Seu email" required>
+    <textarea name="message" placeholder="Sua mensagem" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <p id="status"></p>
+</section>
+
+<footer>
+  <p>© 2026 Andriole Tech</p>
+</footer>
+
+<!-- BOTÃO FLUTUANTE -->
+<a class="whatsapp" href="https://wa.me/556291599946" target="_blank">💬</a>
+
+<script>
+  (function(){
+    emailjs.init("SEU_USER_ID");
+  })();
+
+  document.getElementById("contact-form")
+    .addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm("SEU_SERVICE_ID", "SEU_TEMPLATE_ID", this)
+        .then(function() {
+          document.getElementById("status").innerText = "Mensagem enviada!";
+        }, function(error) {
+          document.getElementById("status").innerText = "Erro ao enviar.";
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Andriole Tech</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-
   <style>
     body {
       margin: 0;
@@ -59,7 +57,7 @@
       box-shadow: 0 0 20px rgba(37,99,235,0.6);
     }
 
-    /* CARDS SERVIÇOS */
+    /* CARDS */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -81,10 +79,6 @@
       background: #1f2937;
     }
 
-    .card h3 {
-      margin: 10px 0;
-    }
-
     #descricao {
       margin-top: 25px;
       background: #111827;
@@ -99,32 +93,6 @@
     @keyframes fade {
       from {opacity: 0;}
       to {opacity: 1;}
-    }
-
-    form {
-      max-width: 400px;
-      margin: auto;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 8px;
-      border: none;
-      background: #111827;
-      color: white;
-    }
-
-    button {
-      background: linear-gradient(45deg, #2563eb, #1e40af);
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      width: 100%;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
     }
 
     footer {
@@ -159,8 +127,13 @@
   <h1>Andriole Tech</h1>
   <p>Criação de <span class="highlight">Sites, Sistemas e Suporte Técnico Profissional</span> 🚀</p>
 
-  <a class="btn" href="https://wa.me/556291599946" target="_blank">Falar no WhatsApp</a>
-  <a class="btn" href="https://wa.me/556291599946" target="_blank">Solicitar Orçamento</a>
+  <a class="btn" href="https://wa.me/556291599946?text=Olá,%20gostaria%20de%20um%20orçamento" target="_blank">
+    Falar no WhatsApp
+  </a>
+
+  <a class="btn" href="https://wa.me/556291599946?text=Olá,%20quero%20um%20site%20profissional" target="_blank">
+    Solicitar Orçamento
+  </a>
 </header>
 
 <section>
@@ -207,38 +180,22 @@
 <section>
   <h2>Contato</h2>
 
-  <form id="contact-form">
-    <input type="text" name="name" placeholder="Seu nome" required>
-    <input type="email" name="email" placeholder="Seu email" required>
-    <textarea name="message" placeholder="Sua mensagem" required></textarea>
-    <button type="submit">Enviar</button>
-  </form>
+  <p>Fale comigo direto pelo WhatsApp e receba um orçamento rápido 🚀</p>
 
-  <p id="status"></p>
+  <a class="btn" href="https://wa.me/556291599946?text=Olá,%20gostaria%20de%20um%20orçamento" target="_blank">
+    📲 Enviar mensagem
+  </a>
 </section>
 
 <footer>
   <p>© 2026 Andriole Tech | Goiânia - GO</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/556291599946" target="_blank">💬</a>
+<a class="whatsapp" href="https://wa.me/556291599946?text=Olá,%20vim%20pelo%20site" target="_blank">
+  💬
+</a>
 
 <script>
-  (function(){
-    emailjs.init("SEU_USER_ID");
-  })();
-
-  document.getElementById("contact-form").addEventListener("submit", function(e){
-    e.preventDefault();
-
-    emailjs.sendForm("SEU_SERVICE_ID", "SEU_TEMPLATE_ID", this)
-    .then(function(){
-      document.getElementById("status").innerText = "Mensagem enviada!";
-    }, function(){
-      document.getElementById("status").innerText = "Erro ao enviar.";
-    });
-  });
-
   function mostrar(tipo) {
     let texto = "";
 
